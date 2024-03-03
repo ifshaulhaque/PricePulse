@@ -7,6 +7,9 @@ var schema = mongoose.Schema({
     email: {
       type: String
     },
+    password: {
+      type: String
+    },
     emailVerified: {
       type: Boolean
     },
