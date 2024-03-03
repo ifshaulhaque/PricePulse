@@ -1,12 +1,13 @@
-const { config } = require('dotenv')
-const express = require("express")
-const app = express()
-config()
+import express from "express";
+import authRoute from "./api/auth/route.js";
+import dotenv from "dotenv";
+import "./db/connection.js"
+import "./db/firebase.js"
 
-app.get("/", (req, res) => {
-    res.json({
-        status: "successfull"
-    })
-})
+dotenv.config();
+const app = express();
 
-app.listen(process.env.PORT || 3000)
+app.use(express.json())
+app.use(authRoute)
+
+app.listen(process.env.PORT || 3000);
