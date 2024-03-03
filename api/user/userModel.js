@@ -32,4 +32,4 @@ var schema = mongoose.Schema({
     },
   });
 
-  export default mongoose.model("auth", schema);
+  export default mongoose.model("user", schema);
