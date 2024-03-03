@@ -22,14 +22,14 @@ export const controller = {
 
                 user.save()
                     .then((result) => {
-                        res.json(result);
+                        res.status(201).json(result);
                     })
                     .catch((error) => {
-                        res.json(error);
+                        res.status(400).json(error);
                     })
             })
             .catch((error) => {
-                res.json(error);
+                res.status(400).json(error);
             });
     }
 }
