@@ -1,18 +1,19 @@
 import User from "./userModel.js";
 import Bcrypt from "bcrypt";
+import mongoose from "mongoose";
 
 export const controller = {
     save: (req, res) => {
         req.body.password = Bcrypt.hashSync(req.body.password, 10);
+        var date = new Date();
         var user = new User({
-            _id: req.body.uid,
+            _id: new mongoose.Types.ObjectId(),
             email: req.body.email,
             password: req.body.password,
             emailVerified: req.body.emailVerified,
             isAnonymous: req.body.isAnonymous,
             providerData: req.body.providerData,
             stsTokenManager: req.body.stsTokenManager,
-            metadata: req.body.metadata,
         })
 
         user.save()

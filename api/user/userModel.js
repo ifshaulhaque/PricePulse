@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 var schema = mongoose.Schema({
     _id: {
-      type: String
+      type: mongoose.Types.ObjectId
     },
     email: {
       type: String
@@ -29,10 +29,9 @@ var schema = mongoose.Schema({
       expirationTime: {
         type: Number
       }
-    },
-    metadata: {
-      type: Object
-    },
+    }
+  },{
+    timestamps: true
   });
 
   export default mongoose.model("user", schema);
