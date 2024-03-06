@@ -22,5 +22,25 @@ export const controller = {
         }).catch((err) => {
             res.status(400).json(fail(400, err));
         })
+    },
+
+    getAllStockName: (req, res) => {
+        Stock.find().distinct('name').then((data) => {
+            res.status(200).json(success(200, data));
+        }).catch((err) => {
+            res.status(200).json(fail(400, err));
+        });
+    },
+
+    getAutoComplete: (req, res) => {
+        let query = {
+            name: {$regex: '^'+req.body.name, $options: 'i'}
+        }
+
+        Stock.find(query).distinct('name').then((data) => {
+            res.status(200).json(success(200, data));
+        }).catch((err) => {
+            res.status(200).json(fail(400, err));
+        });
     }
 }
