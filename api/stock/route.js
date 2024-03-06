@@ -5,6 +5,6 @@ const route = express.Router();
 
 route.get("/stock", controller.search);
 route.get("/stock/names", controller.getAllStockName);
-route.get("/stock/autocomplete", controller.getAutoComplete);
+route.get("/stock/names/:name", controller.getAutoComplete);
 
 export default route
