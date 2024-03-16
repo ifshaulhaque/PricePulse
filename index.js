@@ -1,4 +1,5 @@
 import express from "express";
+import cors from 'cors';
 import swaggerUi from "swagger-ui-express";
 import swaggerSpec from "./swagger.js";
 import authRoute from "./api/auth/route.js";
@@ -11,6 +12,8 @@ import "./db/firebase.js"
 
 dotenv.config();
 const app = express();
+
+app.use(cors());
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
