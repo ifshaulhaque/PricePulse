@@ -1,4 +1,6 @@
 import express from "express";
+import swaggerUi from "swagger-ui-express";
+import swaggerSpec from "./swagger.js";
 import authRoute from "./api/auth/route.js";
 import userRoute from "./api/user/route.js";
 import stockRoute from "./api/stock/route.js";
@@ -9,6 +11,8 @@ import "./db/firebase.js"
 
 dotenv.config();
 const app = express();
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.use(express.json());
 app.use(authRoute);

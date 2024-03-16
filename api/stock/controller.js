@@ -34,7 +34,7 @@ export const controller = {
 
     getAutoComplete: (req, res) => {
         let query = {
-            name: {$regex: '^'+req.params.name, $options: 'i'}
+            name: {$regex: '^'+req.params.stockName, $options: 'i'}
         }
 
         Stock.find(query).distinct('name').then((data) => {

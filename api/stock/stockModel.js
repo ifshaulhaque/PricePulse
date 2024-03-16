@@ -1,5 +1,50 @@
 import mongoose from "mongoose";
 
+/**
+ * @swagger
+ * components:
+ *  schemas: 
+ *      Stock:
+ *          type: object
+ *          properties:
+ *              _id: 
+ *                  type: mongoId
+ *              weekly:
+ *                  type: boolean
+ *              segment:
+ *                  type: string
+ *              name: 
+ *                  type: string
+ *              exchange: 
+ *                  type: string
+ *              expiry:
+ *                  type: number
+ *              instrument_type:
+ *                  type: string
+ *              underlying_symbol:
+ *                  type: string
+ *              instrument_key:
+ *                  type: string
+ *              lot_size:
+ *                  type: number
+ *              freeze_quantity:
+ *                  type: number
+ *              exchange_token:
+ *                  type: date
+ *              minimum_lot:
+ *                  type: number
+ *              underlying_key:
+ *                  type: string
+ *              tick_size:
+ *                  type: number
+ *              underlying_type:
+ *                  type: string
+ *              trading_symbol:
+ *                  type: string
+ *              strike_price:
+ *                  type: number
+ */
+
 var schema = mongoose.Schema({
     _id: {
         type: mongoose.Types.ObjectId
