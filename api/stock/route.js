@@ -8,6 +8,8 @@ const route = express.Router();
  * /stock:
  *  post:
  *      summary: search for a stock
+ *      tags:
+ *          - stock
  *      requestBody:
  *          content:
  *              application/json:
@@ -50,6 +52,8 @@ route.post("/stock", controller.search);
  * /stock/names:
  *  get:
  *      summary: get all the distinct stock name
+ *      tags:
+ *          - stock
  *      responses:
  *          200:
  *              content:
@@ -78,6 +82,8 @@ route.get("/stock/names", controller.getAllStockName);
  * /stock/names/{stockName}:
  *  get:
  *      summary: get autocomplete stock name
+ *      tags:
+ *          - stock
  *      parameters:
  *        - in: path
  *          name: stockName
