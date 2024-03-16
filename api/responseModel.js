@@ -1,3 +1,17 @@
+/**
+ * @swagger
+ * components:
+ *  schemas:
+ *      SuccessResponse: 
+ *          type: object
+ *          properties:
+ *              status:
+ *                  type: integer
+ *                  example: 200
+ *              data:
+ *                  type: Any
+ */
+
 export const success = (status, data) => {
     return {
         status: status,
