@@ -1,6 +1,7 @@
 import User from "./userModel.js";
 import Bcrypt from "bcrypt";
 import mongoose from "mongoose";
+import { success, fail } from "../responseModel.js";
 
 export const controller = {
     save: (req, res) => {
@@ -18,10 +19,10 @@ export const controller = {
 
         user.save()
             .then((result) => {
-                res.status(201).json(result);
+                res.status(201).json(success(201, result));
             })
             .catch((error) => {
-                res.status(400).json(error);
+                res.status(400).json(fail(400, error));
             })
     },
 
@@ -36,10 +37,10 @@ export const controller = {
             { email: req.body.email },
             { $set: user })
             .then((result) => {
-                res.status(201).json(user);
+                res.status(201).json(success(201, user));
             })
             .catch((error) => {
-                res.status(400).json(error);
+                res.status(400).json(fail(400, error));
             })
     }
 }

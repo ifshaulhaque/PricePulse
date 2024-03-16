@@ -3,7 +3,7 @@ import { success, fail } from "../responseModel.js";
 
 export const controller = {
     getAllTheWatchList: (req, res) => {
-        WatchList.find({email: req.body.email}, {email: 1, watchlist: 1}).then((data) => {
+        WatchList.find({email: req.params.email}).then((data) => {
             res.status(200).json(success(200, data));
         }).catch((err) => {
             res.status(400).json(fail(400, err));
