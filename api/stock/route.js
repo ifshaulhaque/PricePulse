@@ -104,7 +104,16 @@ route.get("/stock/names", controller.getAllStockName);
  *                              data:
  *                                  type: array
  *                                  items:
- *                                      type: string
+ *                                      type: object
+ *                                      properties:
+ *                                          _id:
+ *                                              type: mongoId
+ *                                          name:
+ *                                              type: string
+ *                                          exchange:
+ *                                              type: string
+ *                                          instrument_key:
+ *                                              type: string
  *          400:
  *              content:
  *                  application/json:

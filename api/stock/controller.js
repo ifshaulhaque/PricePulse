@@ -37,7 +37,7 @@ export const controller = {
             name: {$regex: '^'+req.params.stockName, $options: 'i'}
         }
 
-        Stock.find(query).distinct('name').then((data) => {
+        Stock.find(query, {name: 1, exchange: 1, instrument_key: 1}).then((data) => {
             res.status(200).json(success(200, data));
         }).catch((err) => {
             res.status(200).json(fail(400, err));
