@@ -9,6 +9,8 @@ import watchlistRoute from "./api/watchlist/route.js";
 import dotenv from "dotenv";
 import "./db/connection.js"
 import "./db/firebase.js"
+import helper from "./utils/download_stock_logo.js";
+helper.imageSaveLocally();
 
 dotenv.config();
 const app = express();
